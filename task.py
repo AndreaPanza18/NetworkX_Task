@@ -16,7 +16,12 @@ def calculate_node_degrees(edges: list) -> dict:
 
 def find_shortest_path(edges: list, source: str, target: str) -> list:
     """Sub-task 2: Find the shortest path between source and target nodes."""
-    pass
+    G = nx.Graph()
+    for edge in edges:
+        G.add_edge(edge[0], edge[1])
+
+    path = nx.shortest_path(G, source, target)
+    return path
 
 def count_connected_components(edges: list) -> int:
     """Sub-task 3: Count the number of connected components in an undirected graph."""
